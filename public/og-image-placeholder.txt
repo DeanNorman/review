@@ -1,0 +1,14 @@
+OG Image Placeholder
+====================
+
+This project needs a 1200x630px Open Graph image at public/og-image.jpg
+
+You can create one using:
+1. Design tools like Figma, Canva, or Photoshop
+2. Online OG image generators
+3. ImageMagick command:
+   convert -size 1200x630 -background "#1a1f2e" -fill "#2196f3" \
+   -pointsize 72 -gravity center label:"ZamaTrack\nTracking Solutions" \
+   public/og-image.jpg
+
+For now, using hero-radio.png as fallback.

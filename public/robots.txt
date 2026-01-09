@@ -1,0 +1,16 @@
+# Robots.txt for ZamaTrack
+User-agent: *
+Allow: /
+
+# Special handling for social media crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Sitemap location
+Sitemap: https://zamatrack.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
