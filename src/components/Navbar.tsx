@@ -20,6 +20,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [activeSolutionSlug, setActiveSolutionSlug] = useState<string>(() => solutions[0]?.slug ?? "");
+  const [desktopMenuOpen, setDesktopMenuOpen] = useState<string>("");
 
   const activeSolution = solutions.find((s) => s.slug === activeSolutionSlug) ?? solutions[0];
   const activeIndex = Math.max(
@@ -49,7 +50,11 @@ const Navbar = () => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex flex-1 justify-center">
-            <NavigationMenu className="z-50 w-full max-w-none">
+            <NavigationMenu
+              className="z-50 w-full max-w-none"
+              value={desktopMenuOpen}
+              onValueChange={setDesktopMenuOpen}
+            >
               <NavigationMenuList className="space-x-8 justify-center">
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
@@ -59,8 +64,13 @@ const Navbar = () => {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="h-auto bg-transparent px-0 py-0 text-muted-foreground hover:bg-transparent hover:text-foreground data-[state=open]:bg-transparent data-[state=open]:text-foreground">
+                <NavigationMenuItem value="solutions">
+                  <NavigationMenuTrigger
+                    className="h-auto bg-transparent px-0 py-0 text-muted-foreground hover:bg-transparent hover:text-foreground data-[state=open]:bg-transparent data-[state=open]:text-foreground"
+                    onPointerEnter={(e) => e.preventDefault()}
+                    onPointerLeave={(e) => e.preventDefault()}
+                    onPointerMove={(e) => e.preventDefault()}
+                  >
                     Solutions
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -88,10 +98,10 @@ const Navbar = () => {
 
                                 <div className="flex gap-2">
                                   <Button asChild size="sm" className="flex-1">
-                                    <Link href={`/solutions/${activeSolution.slug}`}>View solution</Link>
+                                    <Link href={`/solutions/${activeSolution.slug}`} onClick={() => setDesktopMenuOpen("")}>View solution</Link>
                                   </Button>
                                   <Button asChild size="sm" variant="outline" className="flex-1">
-                                    <Link href="/contact">Request a demo</Link>
+                                    <Link href="/contact" onClick={() => setDesktopMenuOpen("")}>Request a demo</Link>
                                   </Button>
                                 </div>
                               </div>
@@ -105,10 +115,10 @@ const Navbar = () => {
                             </div>
                             <div className="mt-5 grid gap-2">
                               <Button asChild size="sm">
-                                <Link href="/solutions">View all solutions</Link>
+                                <Link href="/solutions" onClick={() => setDesktopMenuOpen("")}>View all solutions</Link>
                               </Button>
                               <Button asChild size="sm" variant="outline">
-                                <Link href="/contact">Request a demo</Link>
+                                <Link href="/contact" onClick={() => setDesktopMenuOpen("")}>Request a demo</Link>
                               </Button>
                             </div>
                           </div>
@@ -120,6 +130,7 @@ const Navbar = () => {
                               <Link
                                 key={solution.slug}
                                 href={`/solutions/${solution.slug}`}
+                                onClick={() => setDesktopMenuOpen("")}
                                 onMouseEnter={() => setActiveSolutionSlug(solution.slug)}
                                 onFocus={() => setActiveSolutionSlug(solution.slug)}
                                 className={`group rounded-2xl border border-transparent p-4 min-h-[96px] transition-colors hover:bg-secondary/40 ${solution.slug === activeSolutionSlug ? "bg-secondary/40" : ""

@@ -30,12 +30,15 @@ yarn-error.log*
 # Vercel
 .vercel
 
+# Netlify
+.netlify
+
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
 
-# Old Vite files (can be removed after migration)
-index.html
-vite.config.ts
-tsconfig.app.json
-tsconfig.node.json
+# IDE / Editor
+.vscode
+.idea
+*.swp
+*.swo
