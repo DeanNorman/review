@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import CategoriesSection from "@/components/CategoriesSection";
-import ProductsSection from "@/components/ProductsSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -9,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Home",
-  description: "Advanced tracking and monitoring solutions for modern businesses",
+  description: "Solutions-driven technology provider specializing in innovative communication and workflow management tools. Worxit platform gives you complete control over your workflow processes.",
   path: "/",
 });
 
@@ -19,7 +18,6 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <CategoriesSection />
-      <ProductsSection />
       <FeaturesSection />
       <CTASection />
       <Footer />

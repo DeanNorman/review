@@ -91,7 +91,7 @@ const Navbar = () => {
                                     <Link href={`/solutions/${activeSolution.slug}`}>View solution</Link>
                                   </Button>
                                   <Button asChild size="sm" variant="outline" className="flex-1">
-                                    <Link href="/request-demo">Request a demo</Link>
+                                    <Link href="/contact">Request a demo</Link>
                                   </Button>
                                 </div>
                               </div>
@@ -108,7 +108,7 @@ const Navbar = () => {
                                 <Link href="/solutions">View all solutions</Link>
                               </Button>
                               <Button asChild size="sm" variant="outline">
-                                <Link href="/request-demo">Request a demo</Link>
+                                <Link href="/contact">Request a demo</Link>
                               </Button>
                             </div>
                           </div>
@@ -155,7 +155,7 @@ const Navbar = () => {
 
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
-                    <Link href="/request-demo" className="text-muted-foreground hover:text-foreground transition-colors">
+                    <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
                       Contact Us
                     </Link>
                   </NavigationMenuLink>
@@ -248,7 +248,7 @@ const Navbar = () => {
               </Link>
 
               <Link
-                href="/request-demo"
+                href="/contact"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => {
                   setIsOpen(false);

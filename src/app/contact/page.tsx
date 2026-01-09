@@ -9,7 +9,7 @@ import { toast } from "@/components/ui/use-toast";
 import SolutionVisual from "@/components/SolutionVisual";
 import Link from "next/link";
 
-export default function RequestDemoPage() {
+export default function ContactUsPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -20,11 +20,10 @@ export default function RequestDemoPage() {
             <div className="flex flex-col lg:flex-row gap-10">
               <div className="flex-1">
                 <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                  Request a <span className="text-gradient">Demo</span>
+                  Contact <span className="text-gradient">Us</span>
                 </h1>
                 <p className="mt-4 text-lg text-muted-foreground">
-                  See how the platform standardizes field operations, strengthens site security, and simplifies
-                  compliance reporting.
+                  Get in touch with our team to learn how Worxit can help standardize your field operations, strengthen site security, and simplify compliance reporting.
                 </p>
 
                 <div className="mt-8 rounded-2xl border border-border bg-card shadow-card overflow-hidden">
@@ -33,8 +32,8 @@ export default function RequestDemoPage() {
                     onSubmit={(e) => {
                       e.preventDefault();
                       toast({
-                        title: "Request received",
-                        description: "We'll reach out shortly to schedule your demo.",
+                        title: "Message sent",
+                        description: "Thank you for contacting us. We'll get back to you shortly.",
                       });
                     }}
                   >
@@ -61,17 +60,22 @@ export default function RequestDemoPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">What do you want to achieve?</label>
+                      <label className="text-sm font-medium">Phone Number</label>
+                      <Input type="tel" placeholder="+27 123 456 789" />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Message</label>
                       <Textarea
                         rows={5}
-                        placeholder="E.g., improve guard accountability, digitize visitor logs, reduce missed patrols, track inventory across sites…"
+                        placeholder="Tell us about your requirements or ask us any questions…"
                       />
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-3">
-                      <Button type="submit" className="sm:w-auto">Submit request</Button>
+                      <Button type="submit" className="sm:w-auto">Send Message</Button>
                       <Button variant="outline" asChild>
-                        <Link href="/solutions">Browse Solutions</Link>
+                        <Link href="/solutions">View Solutions</Link>
                       </Button>
                     </div>
                   </form>
@@ -81,25 +85,30 @@ export default function RequestDemoPage() {
               <aside className="lg:w-[360px]">
                 <div className="rounded-2xl border border-border bg-card shadow-card overflow-hidden">
                   <div className="p-6">
-                    <h3 className="text-lg font-bold mb-3">What to expect</h3>
-                    <ul className="space-y-3 text-sm text-muted-foreground">
-                      <li className="flex gap-3">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                        <span>A personalized walkthrough of the platform</span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                        <span>Discussion of your specific use cases</span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                        <span>Live Q&A with our solutions team</span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                        <span>Custom pricing and implementation plan</span>
-                      </li>
-                    </ul>
+                    <h3 className="text-lg font-bold mb-3">Get in Touch</h3>
+                    <div className="space-y-4 text-sm">
+                      <div>
+                        <p className="font-medium text-foreground mb-1">Phone</p>
+                        <a href="tel:+27861987987" className="text-muted-foreground hover:text-primary transition-colors">
+                          +27 (0)861 987 987
+                        </a>
+                      </div>
+                      <div>
+                        <p className="font-medium text-foreground mb-1">Email</p>
+                        <a href="mailto:sales@zamatrack.co.za" className="text-muted-foreground hover:text-primary transition-colors">
+                          sales@zamatrack.co.za
+                        </a>
+                      </div>
+                      <div>
+                        <p className="font-medium text-foreground mb-2">Office Hours</p>
+                        <p className="text-muted-foreground">Monday - Friday</p>
+                        <p className="text-muted-foreground">8:00 AM - 5:00 PM SAST</p>
+                      </div>
+                      <div>
+                        <p className="font-medium text-foreground mb-1">24/7 Support</p>
+                        <p className="text-muted-foreground">Available for existing customers</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
