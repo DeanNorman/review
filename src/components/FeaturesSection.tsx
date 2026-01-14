@@ -35,14 +35,23 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="platform" className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="platform" className="relative py-32 bg-background overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Why Choose <span className="text-gradient">ZamaTrack</span>
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="inline-block mb-4">
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+              Why Choose Us
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            Why Choose <span className="text-gradient bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto]">ZamaTrack</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
             More than just hardware. We provide complete solutions that integrate with your existing workflow.
           </p>
         </div>
@@ -52,14 +61,28 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 opacity-0 animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-500 opacity-0 animate-fade-in-up hover:shadow-card-hover hover:-translate-y-1"
+              style={{ animationDelay: `${index * 80}ms` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <feature.icon className="w-6 h-6 text-primary" />
+              {/* Hover glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+              
+              <div className="relative z-10">
+                {/* Icon with enhanced styling */}
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 bg-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                    <feature.icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                </div>
+                
+                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground/80 transition-colors">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm">{feature.description}</p>
             </div>
           ))}
         </div>
